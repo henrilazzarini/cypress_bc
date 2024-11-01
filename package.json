@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "cpf-cnpj-validator": "^1.0.3",
+    "cypress": "^13.11.0"
+  },
+  "URL_FRONT_BOMCONTROLE": "urlFrontBomControle",
+  "devDependencies": {
+    "cypress-file-upload": "^5.0.8",
+    "cypress-plugin-tab": "^1.0.5"
+  }
+}
