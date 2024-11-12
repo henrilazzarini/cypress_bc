@@ -10,7 +10,10 @@ describe('Testes Gerais - Logins', () => {
     }) 
 
     it('Admin - Login incorreto', () => {
-      cy.autenticacaoAdmin();        
+      cy.visit(Cypress.env('aplicacao').admin[Cypress.env('ambiente')].url);
+      cy.get('#Autenticacao_Login').type('master@bomcontrole.com.br');
+      cy.get('#Autenticacao_Senha').type('senhaErrada123');
+      cy.get('button[type="submit"]').contains('Acessar').click();        
       cy.get('[class="text-danger"]').should('have.text', "Usuário e/ou senha inválido(s)");
     })  
 

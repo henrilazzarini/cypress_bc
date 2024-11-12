@@ -17,13 +17,11 @@ Cypress.Commands.add('autenticacaoBomControle', () => {
   cy.wait('@respostaLogin').then(({ response }) => {
     expect(response.statusCode).to.equal(200);
   });
+});
 
  Cypress.Commands.add('autenticacaoAdmin', () => {
   cy.visit(Cypress.env('aplicacao').admin[ambiente].url);
   cy.get('#Autenticacao_Login').type(Cypress.env('aplicacao').admin[ambiente].login);
   cy.get('#Autenticacao_Senha').type(Cypress.env('aplicacao').admin[ambiente].senha);
-  cy.intercept({ method: 'POST', url: 'https://masterbcapi.bomcontrole.company/api/seguranca/token' }).as('respostaLogin');
   cy.get('button[type="submit"]').contains('Acessar').click(); 
- })
-  
-});
+ });
