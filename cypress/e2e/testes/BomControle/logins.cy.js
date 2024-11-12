@@ -3,14 +3,14 @@ describe('Testes Gerais - Logins', () => {
     beforeEach(() => {})
 
     it('Admin - Login correto', () => {
-      cy.loginAdmin('master@bomcontrole.com.br', '021221');
+      cy.autenticacaoAdmin();
       cy.get('[class="nav-link text-dark"][href="/Assinantes/Listar"]').should('be.visible');
       //Navegação simples
       cy.get('[class="nav-link text-dark"][href="/Assinantes/Listar"]').should('exist')
     }) 
 
     it('Admin - Login incorreto', () => {
-      cy.loginAdmin('master@bomcontrole.com.br', 'senhaErrada123')        
+      cy.autenticacaoAdmin();        
       cy.get('[class="text-danger"]').should('have.text', "Usuário e/ou senha inválido(s)");
     })  
 
